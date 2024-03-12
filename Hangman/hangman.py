@@ -1,8 +1,9 @@
 import random
+from words import word_list
 
 class Hangman():
     def __init__(self):
-        self.words = ["word", "bank", "banana"]
+        self.words = word_list
 
     def randWord(self):
         return random.choice(self.words)
