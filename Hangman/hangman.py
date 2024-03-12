@@ -1,5 +1,6 @@
 import random
 from words import word_list
+from art import logo, stages
 
 class Hangman():
     def __init__(self):
@@ -26,93 +27,20 @@ class Hangman():
     def check(self, player_guess, rand_word, tries, win):
         if player_guess not in rand_word:
             tries -= 1
-            print(self.display_hangman(tries))
+            print(stages[tries])
         if tries == 0:
             win = False
         return win, tries
 
-    def display_hangman(self, tries):
-        stages = [  # final state: head, torso, both arms, and both legs
-            """
-                    --------
-                    |      |
-                    |      O
-                    |     \\|/
-                    |      |
-                    |     / \\
-                    -
-                    """,
-            # head, torso, both arms, and one leg
-            """
-                    --------
-                    |      |
-                    |      O
-                    |     \\|/
-                    |      |
-                    |     / 
-                    -
-                    """,
-            # head, torso, and both arms
-            """
-                    --------
-                    |      |
-                    |      O
-                    |     \\|/
-                    |      |
-                    |      
-                    -
-                    """,
-            # head, torso, and one arm
-            """
-                    --------
-                    |      |
-                    |      O
-                    |     \\|
-                    |      |
-                    |     
-                    -
-                    """,
-            # head and torso
-            """
-                    --------
-                    |      |
-                    |      O
-                    |      |
-                    |      |
-                    |     
-                    -
-                    """,
-            # head
-            """
-                    --------
-                    |      |
-                    |      O
-                    |    
-                    |      
-                    |     
-                    -
-                    """,
-            # initial empty state
-            """
-                    --------
-                    |      |
-                    |      
-                    |    
-                    |      
-                    |     
-                    -
-                    """,
-        ]
-        return stages[tries]
-
 def game():
     hangman = Hangman()
-    tries = 7
+    tries = 6
     win = False
     rand_word = hangman.randWord()
     print("Random word (displayed for debugging):", rand_word)
     blanks = hangman.blanks(rand_word)
 
+    print(logo)
     print("Welcome to Hangman Game!\nLet's play\n")
     print(blanks)
 
