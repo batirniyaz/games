@@ -19,7 +19,7 @@ class TicTacToe:
                 else:
                     print("Invalid move. Please try again.")
             except ValueError:
-                print("Invalid input. Please enter a number.")
+                print("Invalid input. Please enter a number.") 
 
     def win_check(self, player):
         
