@@ -19,9 +19,35 @@ class BlackJact():
     def calculate_score(self):
         user_sum = sum(self.user_card)
         diller_sum = sum(self.diller_card)
+
+        if user_sum == 21 and len(self.user_card) == 2:
+            return 0
+        
+        if 11 in self.user_card and sum(self.cards) > 21:
+            self.cards.remove(11)
+            self.cards.append(1)
+
         return user_sum, diller_sum
     
-    d
+    def check_score(self, user_sum, diller_sum):
+        if user_sum == 21:
+            return "user_won"
+        elif user_sum < 21:
+            pass
+        else:
+            return "user_lose"
+        
+        if diller_sum == 21:
+            return "diller_won"
+        elif diller_sum < 21 and diller_sum > 16:
+            pass
+        elif diller_sum < 17:
+            pass
+        else:
+            return "diller_lose"
+
+        
+    
 
 c = BlackJact()
 
